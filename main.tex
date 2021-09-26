@@ -1,0 +1,44 @@
+\documentclass[letterpaper, 12pt, reqno]{amsart}
+\usepackage{mathtools}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{color}
+\usepackage{pgf}
+\usepackage{listings}
+\usepackage{pgf}
+\usepackage{lineno}
+\usepackage{float}
+\usepackage{hyperref}
+
+\lstdefinestyle{Python}{
+  language = python,
+  breaklines = true,
+  frame = single,
+  numbers = left,
+  tabsize = 2,
+  showtabs = true,
+  basicstyle=\small\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+}
+
+\title{Python Examples}
+\author{William Black}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Streamplots}
+\begin{figure}[h]
+  \begin{center}
+    \input{streamplot.pgf}
+    \caption{This is a plot of the Van der Pol system with \(\epsilon = 0.5\). Note that the pgf format creates vector images that can be zoomed.}
+  \end{center}
+\end{figure}
+\newpage
+\lstinputlisting[language=Python, style=Python]{streamplot.py}
+
+\end{document}
