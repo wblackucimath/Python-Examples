@@ -1,0 +1,575 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     20387,        567]
+NotebookOptionsPosition[     18518,        526]
+NotebookOutlinePosition[     18995,        544]
+CellTagsIndexPosition[     18952,        541]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Partial Sums and Intervals of \[LineSeparator]Convergence", "Title",
+ CellChangeTimes->{{3.835862038830223*^9, 3.835862047511796*^9}, 
+   3.835862635075799*^9},ExpressionUUID->"ec8d8330-ccd8-4a02-8648-\
+892e2f52536a"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ RowBox[{
+  UnderoverscriptBox["\[Sum]", 
+   RowBox[{"k", "=", "0"}], "\[Infinity]"], 
+  SuperscriptBox[
+   RowBox[{"(", 
+    RowBox[{"-", 
+     RowBox[{"x", "^", "2"}]}], ")"}], 
+   "k"]}]],ExpressionUUID->"40dbcb89-ee5a-401d-bb4b-4ecad37784ef"]], "Section",\
+
+ CellChangeTimes->{{3.8358620591002693`*^9, 3.835862152097946*^9}, {
+  3.8358626366571007`*^9, 
+  3.835862637846656*^9}},ExpressionUUID->"17517beb-e08b-4f07-a824-\
+966155d0fb26"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"geompsum", "[", 
+   RowBox[{"x_", ",", " ", "n_"}], "]"}], " ", ":=", " ", 
+  RowBox[{
+   UnderoverscriptBox["\[Sum]", 
+    RowBox[{"k", "=", "0"}], "n"], 
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"-", 
+      RowBox[{"x", "^", "2"}]}], ")"}], "k"]}]}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"ed063d67-7e74-4d92-92aa-d5eb05c428f1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"geomdynam", " ", "=", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Show", "[", 
+      RowBox[{
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         FractionBox["1", 
+          RowBox[{"1", "+", 
+           SuperscriptBox["x", "2"]}]], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+         RowBox[{"PlotLegends", "\[Rule]", 
+          RowBox[{"{", 
+           FractionBox["1", 
+            RowBox[{"1", "+", 
+             SuperscriptBox["x", "2"]}]], "}"}]}], ",", 
+         RowBox[{"PlotRange", "->", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "1.2"}], ",", "1.2"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{"1", "+", 
+                SuperscriptBox[
+                 RowBox[{"(", "1.2", ")"}], "2"]}]], ",", "1"}], "}"}]}], 
+           "}"}]}], ",", 
+         RowBox[{"PlotTheme", "\[Rule]", "\"\<Scientific\>\""}]}], "]"}], ",", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"geompsum", "[", 
+           RowBox[{"x", ",", "N"}], "]"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+         RowBox[{"PlotRange", "->", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "1.2"}], ",", "1.2"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{"1", "+", 
+                SuperscriptBox[
+                 RowBox[{"(", "1.2", ")"}], "2"]}]], ",", "1"}], "}"}]}], 
+           "}"}]}], ",", 
+         RowBox[{"PlotLegends", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             UnderoverscriptBox["\[Sum]", 
+              RowBox[{"k", "=", "0"}], 
+              RowBox[{"Dynamic", "[", "N", "]"}]], 
+             RowBox[{
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"-", "1"}], ")"}], "k"], 
+              SuperscriptBox["x", 
+               RowBox[{"2", "*", "k"}]]}]}], "//", "Defer"}], "}"}]}], ",", 
+         RowBox[{"PlotTheme", "\[Rule]", "\"\<Scientific\>\""}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Dashed", ",", "White"}], "}"}]}]}], "]"}], ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{
+         RowBox[{"Point", "[", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", 
+            FractionBox["1", "2"]}], "}"}], "]"}], ","}], "]"}], ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"Point", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1"}], ",", 
+           FractionBox["1", "2"]}], "}"}], "]"}], "]"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"N", ",", "0", ",", "100", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", "geomdynam", "\[IndentingNewLine]"}], "Input",\
+
+ CellChangeTimes->{{3.835862696945241*^9, 3.835862709744258*^9}, {
+   3.835863953656749*^9, 3.835863996852544*^9}, {3.835864047496972*^9, 
+   3.835864048587679*^9}, {3.835864104188603*^9, 3.835864160453583*^9}, 
+   3.8358642014453382`*^9, {3.835864239281955*^9, 3.835864293498549*^9}, 
+   3.835881323367558*^9},
+ CellLabel->"In[4]:=",ExpressionUUID->"e93eee21-4b72-479a-94da-9f1bc5804732"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{N$$ = 95, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[N$$], 0, 100, 1}}, Typeset`size$$ = {563., {125., 131.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {N$$ = 0}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        Plot[
+        1/(1 + $CellContext`x^2), {$CellContext`x, -2, 2}, 
+         PlotLegends -> {1/(1 + $CellContext`x^2)}, 
+         PlotRange -> {{-1.2, 1.2}, {1/(1 + 1.2^2), 1}}, PlotTheme -> 
+         "Scientific"], 
+        Plot[{
+          $CellContext`geompsum[$CellContext`x, N$$]}, {$CellContext`x, -2, 
+          2}, PlotRange -> {{-1.2, 1.2}, {1/(1 + 1.2^2), 1}}, 
+         PlotLegends -> {
+           Defer[
+            
+            Sum[(-1)^$CellContext`k $CellContext`x^(
+               2 $CellContext`k), {$CellContext`k, 0, 
+              Dynamic[N$$]}]]}, PlotTheme -> "Scientific", 
+         PlotStyle -> {Dashed, White}], 
+        Graphics[
+         Point[{1, 1/2}], Null], 
+        Graphics[
+         Point[{-1, 1/2}]]], "Specifications" :> {{N$$, 0, 100, 1}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{614., {173.3564453125, 179.6435546875}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.835881325070366*^9, 3.8358813500302*^9}},
+ CellLabel->"Out[5]=",ExpressionUUID->"46d9a739-0d2a-4f76-908e-6cfc0726a3d3"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ RowBox[{
+  UnderoverscriptBox["\[Sum]", 
+   RowBox[{"k", "=", "1"}], "\[Infinity]"], 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"-", "1"}], ")"}], 
+     RowBox[{"k", "+", "1"}]], "*", 
+    SuperscriptBox["x", "k"]}], 
+   "k"]}]],ExpressionUUID->"c9ea3ada-4a9c-4cf2-aedb-4389901d07c1"]], "Section",\
+
+ CellChangeTimes->{{3.8358620591002693`*^9, 3.835862152097946*^9}, {
+  3.835862398822503*^9, 3.835862401223353*^9}, {3.835862463704543*^9, 
+  3.8358624647591457`*^9}, {3.8358627417912073`*^9, 
+  3.8358627449221992`*^9}},ExpressionUUID->"9dda8d80-5470-497a-8c80-\
+388d11835a34"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"lnsum", "[", 
+   RowBox[{"x_", ",", " ", "n_"}], "]"}], " ", ":=", " ", 
+  RowBox[{
+   UnderoverscriptBox["\[Sum]", 
+    RowBox[{"k", "=", "1"}], "n"], 
+   FractionBox[
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"-", "1"}], ")"}], 
+      RowBox[{"k", "+", "1"}]], "*", 
+     SuperscriptBox["x", "k"]}], "k"]}]}]], "Input",
+ CellChangeTimes->{
+  3.835862411071538*^9, {3.835862469657487*^9, 3.835862470576228*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"358944a1-386a-440d-9d1e-dca07de7ee1a"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"lnxmin", " ", "=", " ", 
+   RowBox[{"-", "1"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lnxmax", " ", "=", " ", "1.1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lndynam", " ", "=", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Show", "[", 
+      RowBox[{
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"Log", "[", 
+          RowBox[{"x", "+", "1"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "lnxmin", ",", "lnxmax"}], "}"}], ",", 
+         RowBox[{"PlotRange", "->", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"lnxmin", ",", "lnxmax"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "6"}], ",", "2"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"PlotLegends", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Log", "[", 
+            RowBox[{"x", "+", "1"}], "]"}], "}"}]}], ",", 
+         RowBox[{"PlotTheme", "\[Rule]", "\"\<Scientific\>\""}]}], "]"}], ",", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"lnsum", "[", 
+          RowBox[{"x", ",", "N"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "lnxmin", ",", "lnxmax"}], "}"}], ",", 
+         RowBox[{"PlotRange", "->", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"lnxmin", ",", "lnxmax"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "6"}], ",", "2"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"PlotLegends", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             UnderoverscriptBox["\[Sum]", 
+              RowBox[{"k", "=", "1"}], 
+              RowBox[{"Dynamic", "[", "N", "]"}]], 
+             FractionBox[
+              RowBox[{
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"-", "1"}], ")"}], 
+                RowBox[{"k", "+", "1"}]], "*", 
+               SuperscriptBox[
+                RowBox[{"(", "x", ")"}], "k"]}], "k"]}], "//", "Defer"}], 
+           "}"}]}], ",", 
+         RowBox[{"PlotTheme", "\[Rule]", "\"\<Scientific\>\""}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Dashed", ",", "White"}], "}"}]}]}], "]"}], ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"Point", "[", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", " ", 
+           RowBox[{"Log", "[", "2", "]"}]}], "}"}], "]"}], "]"}]}], "]"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"N", ",", "1", ",", "100", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"lndynam", ";"}]}], "Input",
+ CellChangeTimes->{
+  3.835862428808156*^9, {3.8358627582914553`*^9, 3.835862758905229*^9}, 
+   3.835864131023106*^9},ExpressionUUID->"f50749ca-c7e7-42e5-9626-\
+06aa3df6e7dd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ RowBox[{
+  UnderoverscriptBox["\[Sum]", 
+   RowBox[{"k", "=", "1"}], "\[Infinity]"], 
+  FractionBox[
+   SuperscriptBox["x", "k"], 
+   SuperscriptBox["k", 
+    "2"]]}]],ExpressionUUID->"c9c96503-4232-4b34-8792-11e53c73a891"]], \
+"Section",
+ CellChangeTimes->{{3.8358620591002693`*^9, 3.835862152097946*^9}, {
+  3.835862398822503*^9, 3.835862401223353*^9}, {3.835862485983427*^9, 
+  3.8358624859835033`*^9}},ExpressionUUID->"ab464c9e-6d14-4f01-bc83-\
+e27e37b921a6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"baselsum", "[", 
+   RowBox[{"x_", ",", " ", "n_"}], "]"}], " ", ":=", " ", 
+  RowBox[{
+   UnderoverscriptBox["\[Sum]", 
+    RowBox[{"k", "=", "1"}], "n"], 
+   FractionBox[
+    SuperscriptBox["x", "k"], 
+    SuperscriptBox["k", "2"]]}]}]], "Input",
+ CellChangeTimes->{3.835862411071538*^9, 3.835862545465477*^9},
+ CellLabel->"In[9]:=",ExpressionUUID->"536517dc-d62a-4bbe-9179-3ab750ad805d"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"baselxmin", " ", "=", " ", 
+   RowBox[{"-", "1.2"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"baselxmax", " ", "=", " ", "1.1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"baseldynam", " ", "=", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Show", "[", 
+      RowBox[{
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"PolyLog", "[", 
+          RowBox[{"2", ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "baselxmin", ",", "baselxmax"}], "}"}], ",", 
+         RowBox[{"PlotRange", "->", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"baselxmin", ",", "baselxmax"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "1.3"}], ",", "2"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"PlotLegends", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"PolyLog", "[", 
+            RowBox[{"2", ",", "x"}], "]"}], "}"}]}], ",", 
+         RowBox[{"PlotTheme", "\[Rule]", "\"\<Scientific\>\""}]}], "]"}], ",", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"baselsum", "[", 
+           RowBox[{"x", ",", "N"}], "]"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "baselxmin", ",", "baselxmax"}], "}"}], ",", 
+         RowBox[{"PlotRange", "->", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"baselxmin", ",", "baselxmax"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "1.3"}], ",", "2"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"PlotLegends", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             UnderoverscriptBox["\[Sum]", 
+              RowBox[{"k", "=", "1"}], 
+              RowBox[{"Dynamic", "[", "N", "]"}]], 
+             FractionBox[
+              SuperscriptBox[
+               RowBox[{"(", "x", ")"}], "k"], 
+              SuperscriptBox["k", "2"]]}], "//", "Defer"}], "}"}]}], ",", 
+         RowBox[{"PlotTheme", "\[Rule]", "\"\<Scientific\>\""}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Dashed", ",", "White"}], "}"}]}]}], "]"}], ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"Point", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1"}], ",", " ", 
+           RowBox[{"PolyLog", "[", 
+            RowBox[{"2", ",", 
+             RowBox[{"-", "1"}]}], "]"}]}], "}"}], "]"}], "]"}], ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"Point", "[", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", " ", 
+           RowBox[{"PolyLog", "[", 
+            RowBox[{"2", ",", "1"}], "]"}]}], "}"}], "]"}], "]"}]}], "]"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"N", ",", "1", ",", "100", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"baseldynam", ";"}]}], "Input",
+ CellChangeTimes->{
+  3.835862428808156*^9, 3.835862530547333*^9, {3.835862784083767*^9, 
+   3.835862784716761*^9}, 
+   3.835864133388682*^9},ExpressionUUID->"92eb5d21-83b9-4992-be62-\
+c02b0c0594cf"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ RowBox[{
+  UnderoverscriptBox["\[Sum]", 
+   RowBox[{"k", "=", "0"}], "\[Infinity]"], 
+  RowBox[{
+   RowBox[{"k", "!"}], "*", 
+   SuperscriptBox["x", 
+    "k"]}]}]],ExpressionUUID->"1f9be499-41fe-47da-b0b4-00b781302b7e"]], \
+"Section",
+ CellChangeTimes->{{3.8358620591002693`*^9, 3.835862152097946*^9}, {
+  3.835862398822503*^9, 3.835862401223353*^9}, {3.835862485983427*^9, 
+  3.8358624859835033`*^9}, {3.835862592590603*^9, 
+  3.8358626004268303`*^9}},ExpressionUUID->"76857abb-6f8d-441a-ba1c-\
+8329a33cbdbf"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"divsum", "[", 
+   RowBox[{"x_", ",", " ", "n_"}], "]"}], " ", ":=", " ", 
+  RowBox[{
+   UnderoverscriptBox["\[Sum]", 
+    RowBox[{"k", "=", "0"}], "n"], 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"k", "!"}], "*", 
+     SuperscriptBox["x", "k"]}], ")"}]}]}]], "Input",
+ CellChangeTimes->{3.835862411071538*^9, 3.835862545465477*^9, 
+  3.835862606988427*^9},
+ CellLabel->"In[14]:=",ExpressionUUID->"f1fe731f-02cb-47d9-b8a1-28015f6d0a3d"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"divxmin", " ", "=", " ", 
+   RowBox[{"-", "0.1"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"divxmax", " ", "=", " ", "0.1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"divdynam", " ", "=", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Show", "[", 
+      RowBox[{"Plot", "[", 
+       RowBox[{
+        RowBox[{"divsum", "[", 
+         RowBox[{"x", ",", "N"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "divxmin", ",", "divxmax"}], "}"}], ",", 
+        RowBox[{"PlotRange", "->", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"divxmin", ",", "divxmax"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "0.1"}], ",", "2"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"PlotLegends", "\[Rule]", 
+         RowBox[{"{", " ", 
+          RowBox[{
+           RowBox[{
+            UnderoverscriptBox["\[Sum]", 
+             RowBox[{"k", "=", "0"}], 
+             RowBox[{"Dynamic", "[", "N", "]"}]], 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"k", "!"}], "*", 
+              SuperscriptBox["x", "k"]}], ")"}]}], "//", "Defer"}], "}"}]}], 
+        ",", 
+        RowBox[{"PlotTheme", "\[Rule]", "\"\<Scientific\>\""}]}], "]"}], 
+      "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"N", ",", "0", ",", "175", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"divdynam", ";"}]}], "Input",
+ CellChangeTimes->{3.835862428808156*^9, 3.835862530547333*^9, 
+  3.835862620873876*^9, 
+  3.835864135544469*^9},ExpressionUUID->"4810ecfd-3411-4edf-a26b-\
+9910be466b48"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1440., 766.5},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+TaggingRules->Association["TryRealOnly" -> False],
+Magnification:>1.1 Inherited,
+FrontEndVersion->"12.3 for Linux x86 (64-bit) (May 11, 2021)",
+StyleDefinitions->"ReverseColor.nb",
+ExpressionUUID->"95a368e8-d03e-4439-9920-b5c6e2c9d593"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 223, 3, 174, "Title",ExpressionUUID->"ec8d8330-ccd8-4a02-8648-892e2f52536a"],
+Cell[CellGroupData[{
+Cell[828, 29, 468, 13, 74, "Section",ExpressionUUID->"17517beb-e08b-4f07-a824-966155d0fb26"],
+Cell[1299, 44, 384, 11, 58, "Input",ExpressionUUID->"ed063d67-7e74-4d92-92aa-d5eb05c428f1"],
+Cell[CellGroupData[{
+Cell[1708, 59, 3518, 94, 229, "Input",ExpressionUUID->"e93eee21-4b72-479a-94da-9f1bc5804732"],
+Cell[5229, 155, 2253, 49, 373, "Output",ExpressionUUID->"46d9a739-0d2a-4f76-908e-6cfc0726a3d3"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7531, 210, 644, 17, 79, "Section",ExpressionUUID->"9dda8d80-5470-497a-8c80-388d11835a34"],
+Cell[8178, 229, 552, 16, 59, "Input",ExpressionUUID->"358944a1-386a-440d-9d1e-dca07de7ee1a"],
+Cell[8733, 247, 2903, 78, 379, "Input",ExpressionUUID->"f50749ca-c7e7-42e5-9626-06aa3df6e7dd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11673, 330, 492, 12, 78, "Section",ExpressionUUID->"ab464c9e-6d14-4f01-bc83-e27e37b921a6"],
+Cell[12168, 344, 424, 11, 59, "Input",ExpressionUUID->"536517dc-d62a-4bbe-9179-3ab750ad805d"],
+Cell[12595, 357, 3178, 84, 478, "Input",ExpressionUUID->"92eb5d21-83b9-4992-be62-c02b0c0594cf"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15810, 446, 539, 13, 74, "Section",ExpressionUUID->"76857abb-6f8d-441a-ba1c-8329a33cbdbf"],
+Cell[16352, 461, 471, 13, 58, "Input",ExpressionUUID->"f1fe731f-02cb-47d9-b8a1-28015f6d0a3d"],
+Cell[16826, 476, 1664, 46, 273, "Input",ExpressionUUID->"4810ecfd-3411-4edf-a26b-9910be466b48"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
