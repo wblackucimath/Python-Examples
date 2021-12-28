@@ -18,4 +18,4 @@ dependencies:
   - plotly
   - ipympl
   - mpmath
-
+  - tqdm
