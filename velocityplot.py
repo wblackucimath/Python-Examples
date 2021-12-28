@@ -51,4 +51,4 @@ if __name__ == "__main__":
     plt.ylabel("$y$")
     plt.title("Plot of Velocities")
     plt.tight_layout()
-    plt.savefig("velocityplot.pgf") ## You can change pgf to png or other formats
+    plt.savefig("velocityplot.pgf") ## You can change pdf to png or other formats

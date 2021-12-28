@@ -1,3 +1,4 @@
+
 """
 streamplot.py
 By William Black
@@ -56,4 +57,4 @@ if __name__ == "__main__":
     plt.ylabel("$y$")
     plt.title("Plot of Trajectories")
     plt.tight_layout()
-    plt.savefig("streamplot.pgf") ## You can change pgf to png or other formats
+    plt.savefig("streamplot.pgf") ## You can change pdf to png or other formats

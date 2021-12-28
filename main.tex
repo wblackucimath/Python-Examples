@@ -1,28 +1,17 @@
-\documentclass[letterpaper, 12pt, reqno]{amsart}
+\documentclass[letterpaper, 10pt, reqno]{amsart}
 \usepackage{mathtools}
 \usepackage[letterpaper, margin=1in]{geometry}
-\usepackage[utf8]{inputenc}
+\usepackage[utf8x]{inputenc}
 \usepackage[english]{babel}
 \usepackage{color}
 \usepackage{pgf}
-\usepackage{listings}
+\usepackage[langlinenos=true]{minted}
+\usepackage{mdframed}
+\surroundwithmdframed{minted}
 \usepackage{pgf}
 \usepackage{lineno}
 \usepackage{float}
 \usepackage{hyperref}
-
-\lstdefinestyle{Python}{
-  language = python,
-  breaklines = true,
-  frame = single,
-  numbers = left,
-  tabsize = 2,
-  showtabs = true,
-  basicstyle=\small\ttfamily,
-  keywordstyle=\bfseries\color{green!40!black},
-  commentstyle=\itshape\color{purple!40!black},
-  identifierstyle=\color{blue},
-}
 
 \title{Python Examples}
 \author{William Black}
@@ -39,7 +28,7 @@
   \end{center}
 \end{figure}
 \newpage
-\lstinputlisting[language=Python, style=Python]{streamplot.py}
+\inputminted[linenos=true,frame=single]{python}{streamplot.py}
 
 \newpage
 \section{Velocity Plots}
@@ -50,5 +39,5 @@
   \end{center}
 \end{figure}
 \newpage
-\lstinputlisting[language=Python, style=Python]{velocityplot.py}
+\inputminted[linenos=true,frame=single]{python}{velocityplot.py}
 \end{document}
